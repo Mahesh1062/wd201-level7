@@ -2,7 +2,7 @@
 const {request, response} = require('express');
 const express = require('express');
 const app = express();
-const csrf = require('csurf');
+const csrf = require('tiny-csurf');
 
 const {Todo} = require('./models');
 const bodyParser = require('body-parser');
