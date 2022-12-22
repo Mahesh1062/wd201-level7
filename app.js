@@ -13,7 +13,7 @@ const path = require('path');
 
 app.use(bodyParser.json());
 app.use(cookieParser('ssh!!!! some secret string'));
-app.use(csrf({cookie: true}));
+app.use(csrf('this_should_be_32_character_long',['POST','PUT','DELETE']));
 
 
 // seting the ejs is the engine
