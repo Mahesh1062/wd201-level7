@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <meta name="csrf-token" content="<%= csrfToken %>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="./css/styles.css" rel="stylesheet"> 
-    <title>My TODO PROJECT</title>
+    <title>MY TODO PROJECT</title>
     <script>
         var token = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
         function updateTodo(id)
@@ -51,16 +50,11 @@
             .catch((err)=>console.error(err))
         }
     </script>
-=======
-    <link href="./css/styles.css" rel="stylesheet"> 
-    <title>Document</title>
->>>>>>> f1cfc91 (updated)
 </head>
 <body>
     <div class="grid grid-cols-6">
         <div class="col-start-3 col-span-2">
             <%- include('header.ejs') %>
-<<<<<<< HEAD
             <form action="/todos" method="post">
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
                 <div class="flex gap-2 py-4">
@@ -81,15 +75,15 @@
                
                 
             </form>
-           
-            <%- include("todos.ejs") %>
-            <!-- <%- include('footer.ejs') %> -->
-=======
+            <div>
+                <%- include('todo.ejs', {title: "Overdue", data: overdue}) %>
+                <%- include('todo.ejs', {title: "Due Today", data: dueToday}) %>
+                <%- include('todo.ejs', {title: "Due Later", data: dueLater}) %>
+                <%- include('todo.ejs', {title: "Completed Items", data: completedItems}) %>
+            </div>
+            <!-- <%- include("todos.ejs") %> -->
             
-           
-            <%- include("todo.ejs") %>
-            <%- include('footer.ejs') %>
->>>>>>> f1cfc91 (updated)
+            <!-- <%- include('footer.ejs') %> -->
         </div>
     </div>
     
