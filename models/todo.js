@@ -11,10 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate() {
-<<<<<<< HEAD
       // define association here
-=======
->>>>>>> f1cfc91 (updated)
     }
 
     static addTodo({title, dueDate}) {
@@ -29,47 +26,31 @@ module.exports = (sequelize, DataTypes) => {
       return await Todo.findAll({
         where: {
           dueDate: { [Op.lt]: new Date().toLocaleDateString("en-CA") },
-<<<<<<< HEAD
           completed: false,
-=======
->>>>>>> f1cfc91 (updated)
         },
       });
     }
 
     static async dueToday() {
-<<<<<<< HEAD
       // FILL IN HERE TO RETURN ITEMS DUE tODAY
       return await Todo.findAll({
         where: {
           dueDate: { [Op.eq]: new Date().toLocaleDateString("en-CA") },
           completed: false,
-=======
-      return await Todo.findAll({
-        where: {
-          dueDate: { [Op.eq]: new Date().toLocaleDateString("en-CA") },
->>>>>>> f1cfc91 (updated)
         },
       });
     }
 
     static async dueLater() {
-<<<<<<< HEAD
       // FILL IN HERE TO RETURN ITEMS DUE LATER
       return await Todo.findAll({
         where: {
           dueDate: { [Op.gt]: new Date().toLocaleDateString("en-CA") },
           completed: false,
-=======
-      return await Todo.findAll({
-        where: {
-          dueDate: { [Op.gt]: new Date().toLocaleDateString("en-CA") },
->>>>>>> f1cfc91 (updated)
         },
       });
     }
 
-<<<<<<< HEAD
     static async remove(id) {
       return this.destroy({
         where: {
@@ -88,17 +69,7 @@ module.exports = (sequelize, DataTypes) => {
     setCompletionStatus(receiver) {
       return this.update({ completed: receiver });
     }
-=======
-
->>>>>>> f1cfc91 (updated)
-
-    markAsCompleted() {
-      return this.update({completed: true});
-    }
-<<<<<<< HEAD
     
-=======
->>>>>>> f1cfc91 (updated)
   }
   Todo.init({
     title: DataTypes.STRING,
