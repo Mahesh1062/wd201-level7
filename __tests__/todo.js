@@ -108,6 +108,7 @@ describe('todo test suits', ()=>{
       title: 'Buy soda',
       dueDate: new Date().toISOString(),
       completed: false,
+      
     });
     const parsedResponse = JSON.parse(response.text);
     const todoID = parsedResponse.id;
