@@ -1,6 +1,6 @@
 {
     "development": {
-      "username": "mahesh",
+      "username": "",
       "password": "mahesh#1062",
       "database": "wd-todo-dev",
       "host": "127.0.0.1",
@@ -8,7 +8,7 @@
     },
     "test": {
       "username": "mahesh",
-      "password": "mahesh#1062",
+      "password": "",
       "database": "wd-todo-test",
       "host": "127.0.0.1",
       "dialect": "postgres"
