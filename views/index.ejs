@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <meta name="csrf-token" content="<%= csrfToken %>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="./css/styles.css" rel="stylesheet"> 
@@ -50,11 +51,16 @@
             .catch((err)=>console.error(err))
         }
     </script>
+=======
+    <link href="./css/styles.css" rel="stylesheet"> 
+    <title>Document</title>
+>>>>>>> f1cfc91 (updated)
 </head>
 <body>
     <div class="grid grid-cols-6">
         <div class="col-start-3 col-span-2">
             <%- include('header.ejs') %>
+<<<<<<< HEAD
             <form action="/todos" method="post">
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
                 <div class="flex gap-2 py-4">
@@ -78,6 +84,12 @@
            
             <%- include("todos.ejs") %>
             <!-- <%- include('footer.ejs') %> -->
+=======
+            
+           
+            <%- include("todo.ejs") %>
+            <%- include('footer.ejs') %>
+>>>>>>> f1cfc91 (updated)
         </div>
     </div>
     

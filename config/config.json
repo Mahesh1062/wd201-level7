@@ -1,14 +1,24 @@
 {
     "development": {
+<<<<<<< HEAD
       "username": "",
       "password": "mahesh#1062",
+=======
+      "username": "postgres",
+      "password": "postgres",
+>>>>>>> f1cfc91 (updated)
       "database": "wd-todo-dev",
       "host": "127.0.0.1",
       "dialect": "postgres"
     },
     "test": {
+<<<<<<< HEAD
       "username": "mahesh",
       "password": "",
+=======
+      "username": "postgres",
+      "password": "postgres",
+>>>>>>> f1cfc91 (updated)
       "database": "wd-todo-test",
       "host": "127.0.0.1",
       "dialect": "postgres"
@@ -17,4 +27,8 @@
       "use_env_variable": "DATABASE_URL",
       "dialect": "postgres" 
      }
+<<<<<<< HEAD
   }
+=======
+  }
+>>>>>>> f1cfc91 (updated)
