@@ -21,22 +21,22 @@ describe('todo test suits', ()=>{
     await db.sequelize.close();
     server.close();
   });
-  test('Test create a new todo item', async () => {
+  test('Test the functionality of create a new todo item', async () => {
     const getResponse = await agent.get('/');
     const csrfToken = fetchCsrfToken(getResponse);
     const response = await agent.post('/todos').send({
-      title: 'Go to Market',
+      title: 'copyright year fixed',
       dueDate: new Date().toISOString(),
       completed: false,
       _csrf: csrfToken,
     });
     expect(response.statusCode).toBe(302);
   });
-  test('Test updating the markAsCompleted', async () => {
+  test('Test the update functionality by updating the markAsCompleted', async () => {
     const getResponse = await agent.get('/');
     let csrfToken = fetchCsrfToken(getResponse);
     await agent.post('/todos').send({
-      title: 'Go to college',
+      title: 'copyright year has been changed successfully',
       dueDate: new Date().toISOString(),
       completed: false,
       '_csrf': csrfToken,
@@ -59,7 +59,7 @@ describe('todo test suits', ()=>{
     const getResponse = await agent.get('/');
     let csrfToken = fetchCsrfToken(getResponse);
     await agent.post('/todos').send({
-      title: 'Visit temple',
+      title: 'Delete functionality checking',
       dueDate: new Date().toISOString(),
       completed: false,
       '_csrf': csrfToken,
@@ -79,7 +79,7 @@ describe('todo test suits', ()=>{
     expect(boolResponse).toBe(true);
   });
 
-  test('Test marking an item as incomplete', async () => {
+  test('Test the marking an item as incomplete', async () => {
     const getResponse = await agent.get('/');
     let csrfToken = fetchCsrfToken(getResponse);
     await agent.post('/todos').send({
