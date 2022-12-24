@@ -1,3 +1,4 @@
+/* eslint-disable no-unused var */
 const request = require('supertest');
 const db = require('../models/index');
 const app = require('../app');
@@ -21,22 +22,22 @@ describe('todo test suits', ()=>{
     await db.sequelize.close();
     server.close();
   });
-  test('Test the functionality of create a new todo item', async () => {
+  test('Test create functionality new todo item', async () => {
     const getResponse = await agent.get('/');
     const csrfToken = fetchCsrfToken(getResponse);
     const response = await agent.post('/todos').send({
-      title: 'copyright year fixed',
+      title: 'my exam finished',
       dueDate: new Date().toISOString(),
       completed: false,
       _csrf: csrfToken,
     });
     expect(response.statusCode).toBe(302);
   });
-  test('Test the update functionality by updating the markAsCompleted', async () => {
+  test('Test the update functionality the markAsCompleted', async () => {
     const getResponse = await agent.get('/');
     let csrfToken = fetchCsrfToken(getResponse);
     await agent.post('/todos').send({
-      title: 'copyright year has been changed successfully',
+      title: 'buy car --',
       dueDate: new Date().toISOString(),
       completed: false,
       '_csrf': csrfToken,
@@ -79,11 +80,11 @@ describe('todo test suits', ()=>{
     expect(boolResponse).toBe(true);
   });
 
-  test('Test the marking an item as incomplete', async () => {
+  test('Test the incomplete functionality', async () => {
     const getResponse = await agent.get('/');
     let csrfToken = fetchCsrfToken(getResponse);
     await agent.post('/todos').send({
-      title: 'some changes of L9-1-1',
+      title: 'go to tour',
       dueDate: new Date().toISOString(),
       completed: true,
       '_csrf': csrfToken,
