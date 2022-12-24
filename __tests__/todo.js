@@ -25,7 +25,7 @@ describe('todo test suits', ()=>{
     const getResponse = await agent.get('/');
     const csrfToken = fetchCsrfToken(getResponse);
     const response = await agent.post('/todos').send({
-      title: 'copyright year fixed',
+      title: 'Buy Book',
       dueDate: new Date().toISOString(),
       completed: false,
       _csrf: csrfToken,
@@ -36,7 +36,7 @@ describe('todo test suits', ()=>{
     const getResponse = await agent.get('/');
     let csrfToken = fetchCsrfToken(getResponse);
     await agent.post('/todos').send({
-      title: 'copyright year has been changed successfully',
+      title: 'Go to college',
       dueDate: new Date().toISOString(),
       completed: false,
       '_csrf': csrfToken,
@@ -59,7 +59,7 @@ describe('todo test suits', ()=>{
     const getResponse = await agent.get('/');
     let csrfToken = fetchCsrfToken(getResponse);
     await agent.post('/todos').send({
-      title: 'Delete functionality checking',
+      title: 'Visit temple',
       dueDate: new Date().toISOString(),
       completed: false,
       '_csrf': csrfToken,
