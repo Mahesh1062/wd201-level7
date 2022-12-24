@@ -21,11 +21,11 @@ describe('todo test suits', ()=>{
     await db.sequelize.close();
     server.close();
   });
-  test('Test the create todo item', async () => {
+  test('Test create a new todo item', async () => {
     const getResponse = await agent.get('/');
     const csrfToken = fetchCsrfToken(getResponse);
     const response = await agent.post('/todos').send({
-      title: 'Buy Book',
+      title: 'Go to Market',
       dueDate: new Date().toISOString(),
       completed: false,
       _csrf: csrfToken,
