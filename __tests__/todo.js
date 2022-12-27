@@ -1,10 +1,10 @@
-/* eslint-disable no-unused var */
+/* eslint-disable no-undef */
 const request = require('supertest');
+const cheerio = require('cheerio');
 const db = require('../models/index');
 const app = require('../app');
-const cheerio = require('cheerio');
 
-let server; let agent;
+let server, agent;
 
 function fetchCsrfToken(res)
 {
@@ -15,29 +15,29 @@ function fetchCsrfToken(res)
 describe('todo test suits', ()=>{
   beforeAll(async ()=>{
     await db.sequelize.sync({force: true});
-    server = app.listen(process.env.PORT || 3000, ()=>{});
+    server = app.listen(process.env.PORT || 4000, ()=>{});
     agent = request.agent(server);
   });
   afterAll( async () =>{
     await db.sequelize.close();
     server.close();
   });
-  test('Test create functionality new todo item', async () => {
+  test('Test create a new todo item', async () => {
     const getResponse = await agent.get('/');
     const csrfToken = fetchCsrfToken(getResponse);
     const response = await agent.post('/todos').send({
-      title: 'my exam finished',
+      title: 'Go to college...',
       dueDate: new Date().toISOString(),
       completed: false,
       _csrf: csrfToken,
     });
     expect(response.statusCode).toBe(302);
   });
-  test('Test the update functionality the markAsCompleted', async () => {
+  test('Test the update functinality the markAsCompleted', async () => {
     const getResponse = await agent.get('/');
     let csrfToken = fetchCsrfToken(getResponse);
     await agent.post('/todos').send({
-      title: 'buy car --',
+      title: 'buy cloth--',
       dueDate: new Date().toISOString(),
       completed: false,
       '_csrf': csrfToken,
@@ -60,7 +60,7 @@ describe('todo test suits', ()=>{
     const getResponse = await agent.get('/');
     let csrfToken = fetchCsrfToken(getResponse);
     await agent.post('/todos').send({
-      title: 'Delete functionality checking',
+      title: 'complete task',
       dueDate: new Date().toISOString(),
       completed: false,
       '_csrf': csrfToken,
@@ -80,11 +80,11 @@ describe('todo test suits', ()=>{
     expect(boolResponse).toBe(true);
   });
 
-  test('Test the incomplete functionality', async () => {
+  test('Test the marking an item as incomplete', async () => {
     const getResponse = await agent.get('/');
     let csrfToken = fetchCsrfToken(getResponse);
     await agent.post('/todos').send({
-      title: 'go to tour',
+      title: 'Go to shop',
       dueDate: new Date().toISOString(),
       completed: true,
       '_csrf': csrfToken,
