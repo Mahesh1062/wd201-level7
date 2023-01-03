@@ -36,10 +36,10 @@ describe("todo test suits", () => {
     let response = await agent.get("/signup");
     const csrfToken = fetchCsrfToken(response);
     response = await agent.post("/users").send({
-      firstName: "Suraj",
+      firstName: "mahesh",
       lastName: "chy",
-      email: "suraj123@gmail.com",
-      password: "12345678",
+      email: "mahesh1062@gmail.com",
+      password: "maheshchy",
       _csrf: csrfToken,
     });
     expect(response.statusCode).toBe(302);
@@ -56,7 +56,7 @@ describe("todo test suits", () => {
 
   test("Test create a new todo", async () => {
     const agent = request.agent(server);
-    await login(agent, "suraj123@gmail.com", "12345678");
+    await login(agent, "mahesh1062@gmail.com", "maheshchy");
     const getResponse = await agent.get("/todos");
     const csrfToken = fetchCsrfToken(getResponse);
     const response = await agent.post("/todos").send({
@@ -69,7 +69,7 @@ describe("todo test suits", () => {
   });
   test("Test a markAsComplete functionality", async () => {
     const agent = request.agent(server);
-    await login(agent, "suraj123@gmail.com", "12345678");
+    await login(agent, "mahesh1062@gmail.com", "maheshchy");
     const getResponse = await agent.get("/todos");
     let csrfToken = fetchCsrfToken(getResponse);
     await agent.post("/todos").send({
@@ -97,7 +97,7 @@ describe("todo test suits", () => {
   });
   test("Test the delete functionality", async () => {
     const agent = request.agent(server);
-    await login(agent, "suraj123@gmail.com", "12345678");
+    await login(agent, "mahesh1062@gmail.com", "maheshchy");
     const getResponse = await agent.get("/todos");
     let csrfToken = fetchCsrfToken(getResponse);
     await agent.post("/todos").send({
@@ -126,7 +126,7 @@ describe("todo test suits", () => {
 
   test("Test marking an item as incomplete", async () => {
     const agent = request.agent(server);
-    await login(agent, "suraj123@gmail.com", "12345678");
+    await login(agent, "mahesh1062@gmail.com", "maheshchy");
     const getResponse = await agent.get("/todos");
     let csrfToken = fetchCsrfToken(getResponse);
     await agent.post("/todos").send({
