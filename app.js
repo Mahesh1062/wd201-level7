@@ -95,7 +95,7 @@ app.get("/", async(request, response) => {
     return response.redirect("/todos");
   }
   response.render("index", {
-    title: "TO_DO_Application",
+    title: "mahesh TO-DO Application",
     csrfToken: request.csrfToken(),
   });
 });
