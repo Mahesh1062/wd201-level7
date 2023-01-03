@@ -95,7 +95,7 @@ app.get("/", async(request, response) => {
     return response.redirect("/todos");
   }
   response.render("index", {
-    title: "mahesh TO-DO Application",
+    title: "Mahesh TO-DO Application",
     csrfToken: request.csrfToken(),
   });
 });
@@ -114,7 +114,7 @@ app.get(
       const completedItems = await Todo.completedItems(loggedInUser);
       if (request.accepts("html")) {
         response.render("todos", {
-          title: "TO_DO_Apllication",
+          title: "Mahesh TO-DO Apllication",
           userName,
           allTodos,
           overdue,
